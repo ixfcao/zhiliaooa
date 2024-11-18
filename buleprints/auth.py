@@ -21,7 +21,7 @@ def register():
     return render_template("register.html")
 
 # 验证码
-@bp.route("/captcha/email")
+@bp.route("/captcha/email", methods=['GET'])
 def get_email_captcha():
     # /captcha/email/<email>
     # /captcha/email?email=xxx@qq.com

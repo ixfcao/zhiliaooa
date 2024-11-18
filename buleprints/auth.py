@@ -18,6 +18,8 @@ def login():
 
 @bp.route("/register")
 def register():
+    # 验证用户提交的邮箱和验证码是否对应正确
+    # 表单验证：flask-wtf：wtforms
     return render_template("register.html")
 
 # 验证码

@@ -1,6 +1,6 @@
 from flask import Flask
 
-from exts import db
+from exts import db, mail
 from models import UserModel
 from buleprints.qa import bp as qa_bp
 from buleprints.auth import bp as auth_bp
@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 #
 db.init_app(app)
+mail.init_app(app)
 
 migrate = Migrate(app, db)
 app.register_blueprint(auth_bp)

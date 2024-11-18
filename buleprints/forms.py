@@ -30,3 +30,9 @@ class RegisterForm(wtforms.Form):
         #     # todo：可以删掉captcha_model
         #     db.session.delete(captcha_model)
         #     db.session.commit()
+
+
+class LoginForm(wtforms.Form):
+    email = wtforms.StringField(validators=[Email(message="邮箱格式错误！")])
+    password = wtforms.StringField(validators=[Length(min=6, max=20, message="密码格式错误！")])
+

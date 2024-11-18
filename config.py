@@ -1,3 +1,7 @@
+
+
+SECRET_KEY="sxjjkgxbjs;lf"
+
 # 连接数据库的配置信息
 
 # MySQL所在的主机名

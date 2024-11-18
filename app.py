@@ -5,6 +5,7 @@ from models import UserModel
 from buleprints.qa import bp as qa_bp
 from buleprints.auth import bp as auth_bp
 from flask_migrate import Migrate
+
 app = Flask(__name__)
 
 # 绑定配置文件

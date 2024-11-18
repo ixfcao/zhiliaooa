@@ -89,7 +89,7 @@ def get_email_captcha():
     email_captcha = EmailCaptchaModel(email=email,captcha=captcha)
     db.session.add(email_captcha)
     db.session.commit()
-    # RESTful API
+    # Restful API
     # {code: 200/400/500, message: "", data: {}}
     return jsonify({"code": 200, "message": "", "data": None})
 

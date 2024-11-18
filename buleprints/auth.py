@@ -1,12 +1,14 @@
 import string
 import random
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, jsonify
 from mako.runtime import capture
 
 
-from exts import mail
+from exts import mail, db
 from flask_mail import Message
 from flask import redirect
+from models import EmailCaptchaModel
+
 bp = Blueprint("auth", __name__,url_prefix="/auth")
 
 @bp.route("/login")
@@ -29,14 +31,18 @@ def get_email_captcha():
     # 采样
     captcha =  random.sample(source, 4)
     captcha = " ".join(captcha)
-    message = Message(subject="知了传课注册验证码", recipients=["2717176337@qq.com"], body=f"测试！您的验证码是：{captcha}")
+    message = Message(subject="知了传课注册验证码", recipients=[email], body=f"测试！您的验证码是：{captcha}")
     mail.send(message)
-
     #  验证码可以存放在缓存中 memcached/redis
     #  用数据库存储
-
-
-    return "success"
+    email_captcha = EmailCaptchaModel(email=email, captcha=captcha)
+    db.session.add(email_captcha)
+    db.session.commit()
+    return jsonify({
+        "code": 200,
+        "message": "",
+        "data": None
+    })
 
 
 

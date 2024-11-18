@@ -31,6 +31,7 @@ def get_email_captcha():
     # 采样
     captcha =  random.sample(source, 4)
     captcha = " ".join(captcha)
+    # I/O :Input/Output 可以用任务队列做
     message = Message(subject="知了传课注册验证码", recipients=[email], body=f"测试！您的验证码是：{captcha}")
     mail.send(message)
     #  验证码可以存放在缓存中 memcached/redis

@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51e1f72e-e177-4e44-9a04-2e820b01042d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buleprints/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/buleprints/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buleprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/buleprints/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1731896088309" duration="12000" />
       <workItem from="1731896107510" duration="4215000" />
       <workItem from="1731900338260" duration="4966000" />
-      <workItem from="1731911554053" duration="16061000" />
+      <workItem from="1731911554053" duration="17595000" />
     </task>
     <servers />
   </component>

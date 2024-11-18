@@ -39,6 +39,13 @@ def login():
             print(form.errors)
             return redirect(url_for("auth.login"))
 
+# 退出登录
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
+
 # 2717176337@qq.com
 @bp.route("/register",methods=["GET","POST"])
 def register():

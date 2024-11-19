@@ -3,6 +3,7 @@ from flask import Blueprint, request, render_template, redirect, url_for,g
 from buleprints.forms import QuestionForm
 from exts import db
 from models import QuestionModel
+from 代码.zhiliaooa.decorators import login_required
 
 bp = Blueprint("qa", __name__,url_prefix="/")
 # 首页
@@ -13,6 +14,7 @@ def index():
 
 
 @bp.route("/qa/public", methods=['GET', 'POST'])
+@login_required
 def public_question():
     if request.method == 'GET':
         return render_template("public_question.html")

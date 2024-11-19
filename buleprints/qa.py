@@ -1,8 +1,8 @@
 from flask import Blueprint, request, render_template, redirect, url_for,g
 
-from buleprints.forms import QuestionForm
+from buleprints.forms import QuestionForm, AnswerForm
 from exts import db
-from models import QuestionModel
+from models import QuestionModel, AnswerModel
 from 代码.zhiliaooa.decorators import login_required
 
 bp = Blueprint("qa", __name__,url_prefix="/")
@@ -37,3 +37,22 @@ def public_question():
 def qa_detail(qa_id):
     question = QuestionModel.query.get(qa_id)
     return render_template("detail.html", question=question)
+
+# @bp.route("/answer/public", methods=['POST'])
+@bp.post("/answer/public")
+@login_required
+def public_answer():
+    form = AnswerForm(request.form)
+    if form.validate():
+        content = form.content.data
+        question_id = form.question_id.data
+        answer = AnswerModel(content=content,question_id=question_id,author_id=g.user.id)
+        db.session.add(answer)
+        db.session.commit()
+        return redirect(url_for("qa.qa_detail", qa_id=question_id) )
+    else:
+        print(form.errors)
+        return redirect(url_for("qa.qa.detail",qa_id=request.form.get("question_id")) )
+
+
+

@@ -44,7 +44,7 @@ def qa_detail(qa_id):
 @bp.post("/answer/public")
 @login_required
 def public_answer():
-    form = AnswerForm(request.form)
+    form = AnswerForm(request.form) # form = AnswerForm(request.form)：创建一个AnswerForm实例，request.form包含了用户提交的表单数据。
     if form.validate():
         content = form.content.data
         question_id = form.question_id.data

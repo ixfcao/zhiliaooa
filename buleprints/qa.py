@@ -55,4 +55,23 @@ def public_answer():
         return redirect(url_for("qa.qa.detail",qa_id=request.form.get("question_id")) )
 
 
+@bp.route("/search")
+def search():
+    """
+    处理搜索请求的视图函数。
 
+    该函数从查询参数中获取搜索关键词，然后从数据库中查询包含该关键词的问题，
+    最后将查询结果渲染到模板中并返回。
+    """
+    # /search?q=flask
+    # /search/<q>
+    # post, request.from
+
+    # 从查询参数中获取搜索关键词
+    q = request.args.get("q")
+
+    # 使用SQLAlchemy查询包含搜索关键词的问题
+    questions = QuestionModel.query.filter(QuestionModel.title.contains(q)).all()
+
+    # 渲染模板并将查询结果传递给模板
+    return render_template("index.html", questions=questions)

@@ -10,7 +10,8 @@ bp = Blueprint("qa", __name__,url_prefix="/")
 # http://127.0.0.1:5000
 @bp.route("/")
 def index():
-   return "这是首页 "
+    questions = QuestionModel.query.order_by(QuestionModel.create_time.desc()).all()
+    return render_template("index.html", questions=questions)
 
 
 @bp.route("/qa/public", methods=['GET', 'POST'])
